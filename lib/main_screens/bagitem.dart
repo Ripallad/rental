@@ -1,10 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
-import 'package:rental/main%20screens/home.dart';
-import 'package:rental/main%20screens/navigation.dart';
+import 'package:rental/main_screens/navigation.dart';
 
 class bagitem extends StatelessWidget {
   const bagitem({super.key});

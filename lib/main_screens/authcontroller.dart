@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main%20screens/home.dart';
-import 'package:rental/main%20screens/phoneverification.dart';
+
+import 'home.dart';
+import 'phoneverification.dart';
 
 class authcontroller extends GetxController {
   RxString verId = ''.obs;
@@ -24,7 +25,7 @@ class authcontroller extends GetxController {
       timeout: const Duration(seconds: 120),
       codeAutoRetrievalTimeout: (String verificationId) {},
     );
-    Get.to(phoneverification());
+    Get.to(() => phoneverification());
   }
 
   verifyOTP(code) async {

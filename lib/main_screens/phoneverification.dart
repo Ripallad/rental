@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
-import 'package:rental/main%20screens/forgot.dart';
-import 'package:rental/main%20screens/resetpsd.dart';
+import 'package:rental/main_screens/authcontroller.dart';
+import 'package:rental/main_screens/login.dart';
 
-class forgotpin extends StatelessWidget {
-  const forgotpin({super.key});
+class phoneverification extends StatelessWidget {
+  const phoneverification({super.key});
 
   @override
   Widget build(BuildContext context) {
+    String myotp = '';
+    final auth = Get.put(authcontroller());
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -16,7 +18,7 @@ class forgotpin extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () => Get.to(forgot()),
+              onTap: () => Get.to(login()),
               child: Container(
                 height: 28,
                 width: 28,
@@ -97,12 +99,24 @@ class forgotpin extends StatelessWidget {
                       ),
                       Pinput(
                         length: 6,
+                        onCompleted: (value) {
+                          myotp = value;
+                        },
                       ),
                       SizedBox(
                         height: 40,
                       ),
                       InkWell(
-                        onTap: () => Get.to(resetpsd()),
+                        onTap: () {
+                          try {
+                            if (myotp.length == 6) {
+                              auth.verifyotp(myotp);
+                            }
+                          } catch (e) {
+                            Get.snackbar("Error", "Enter valid otp");
+                          }
+                          // auth.verifyotp(myotp);
+                        },
                         child: Container(
                           width: 390,
                           height: 50,

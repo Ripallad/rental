@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main%20screens/authcontroller.dart';
-import 'package:rental/main%20screens/forgot.dart';
-import 'package:rental/main%20screens/signup.dart';
+import 'package:rental/main_screens/authcontroller.dart';
+import 'package:rental/main_screens/forgot.dart';
+import 'package:rental/main_screens/signup.dart';
 
 class login extends StatelessWidget {
   const login({super.key});

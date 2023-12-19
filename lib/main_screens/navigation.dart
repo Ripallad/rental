@@ -1,10 +1,10 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:rental/main%20screens/allcategory.dart';
-import 'package:rental/main%20screens/bagitem.dart';
-import 'package:rental/main%20screens/editprofile.dart';
-import 'package:rental/main%20screens/home.dart';
-import 'package:rental/main%20screens/search.dart';
+import 'package:rental/main_screens/allcategory.dart';
+import 'package:rental/main_screens/bagitem.dart';
+import 'package:rental/main_screens/editprofile.dart';
+import 'package:rental/main_screens/home.dart';
+import 'package:rental/main_screens/search.dart';
 
 class navigation extends StatefulWidget {
   const navigation({super.key});

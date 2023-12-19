@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main%20screens/forgotpin.dart';
-import 'package:rental/main%20screens/login.dart';
+import 'package:rental/main_screens/forgotpin.dart';
+import 'package:rental/main_screens/login.dart';
 
-class resetpsd extends StatelessWidget {
-  const resetpsd({super.key});
+class forgot extends StatelessWidget {
+  const forgot({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class resetpsd extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () => Get.to(forgotpin()),
+              onTap: () => Get.to(login()),
               child: Container(
                 height: 28,
                 width: 28,
@@ -44,7 +44,7 @@ class resetpsd extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Reset password",
+                      "Forgot Password",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -75,7 +75,7 @@ class resetpsd extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      Text("Reset password",
+                      Text("Forgot password?",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -84,7 +84,7 @@ class resetpsd extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        "Your new password must be different from previously used password",
+                        "Enter your email address to reset your password instruction",
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -118,44 +118,14 @@ class resetpsd extends StatelessWidget {
                                 ),
                                 borderRadius: BorderRadius.circular(15),
                               ),
-                              label: Text("New Password")),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Container(
-                        height: 50,
-                        width: 390,
-                        child: TextFormField(
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black.withOpacity(0.5099999904632568),
-                          ),
-                          textAlign: TextAlign.start,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Color.fromARGB(255, 244, 244, 244),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 244, 244, 244),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 244, 244, 244),
-                                ),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              label: Text("Confirm Password")),
+                              label: Text("Phone number")),
                         ),
                       ),
                       SizedBox(
                         height: 40,
                       ),
                       InkWell(
-                        onTap: () => Get.to(login()),
+                        onTap: () => Get.to(forgotpin()),
                         child: Container(
                           width: 390,
                           height: 50,
@@ -164,7 +134,7 @@ class resetpsd extends StatelessWidget {
                               color: Color(0xff1b3e41)),
                           child: Center(
                             child: Text(
-                              "Save",
+                              "Send Link",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
-import 'package:rental/main%20screens/authcontroller.dart';
-import 'package:rental/main%20screens/login.dart';
+import 'package:rental/main_screens/forgotpin.dart';
+import 'package:rental/main_screens/login.dart';
 
-class phoneverification extends StatelessWidget {
-  const phoneverification({super.key});
+class resetpsd extends StatelessWidget {
+  const resetpsd({super.key});
 
   @override
   Widget build(BuildContext context) {
-    String myotp = '';
-    final auth = Get.put(authcontroller());
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -18,7 +15,7 @@ class phoneverification extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () => Get.to(login()),
+              onTap: () => Get.to(forgotpin()),
               child: Container(
                 height: 28,
                 width: 28,
@@ -47,7 +44,7 @@ class phoneverification extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Phone verification",
+                      "Reset password",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -78,7 +75,7 @@ class phoneverification extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      Text("Phone verification",
+                      Text("Reset password",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -87,7 +84,7 @@ class phoneverification extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        "Enter your OTP code here",
+                        "Your new password must be different from previously used password",
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -97,26 +94,68 @@ class phoneverification extends StatelessWidget {
                       SizedBox(
                         height: 40,
                       ),
-                      Pinput(
-                        length: 6,
-                        onCompleted: (value) {
-                          myotp = value;
-                        },
+                      Container(
+                        height: 50,
+                        width: 390,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black.withOpacity(0.5099999904632568),
+                          ),
+                          textAlign: TextAlign.start,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 244, 244, 244),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 244, 244, 244),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 244, 244, 244),
+                                ),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              label: Text("New Password")),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 390,
+                        child: TextFormField(
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black.withOpacity(0.5099999904632568),
+                          ),
+                          textAlign: TextAlign.start,
+                          decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Color.fromARGB(255, 244, 244, 244),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 244, 244, 244),
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color.fromARGB(255, 244, 244, 244),
+                                ),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              label: Text("Confirm Password")),
+                        ),
                       ),
                       SizedBox(
                         height: 40,
                       ),
                       InkWell(
-                        onTap: () {
-                          try {
-                            if (myotp.length == 6) {
-                              auth.verifyotp(myotp);
-                            }
-                          } catch (e) {
-                            Get.snackbar("Error", "Enter valid otp");
-                          }
-                          // auth.verifyotp(myotp);
-                        },
+                        onTap: () => Get.to(login()),
                         child: Container(
                           width: 390,
                           height: 50,
@@ -125,7 +164,7 @@ class phoneverification extends StatelessWidget {
                               color: Color(0xff1b3e41)),
                           child: Center(
                             child: Text(
-                              "Verify",
+                              "Save",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,

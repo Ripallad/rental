@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:rental/widgets/commonwidget.dart';
 
 class profile extends StatelessWidget {
   const profile({super.key});

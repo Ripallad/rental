@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main%20screens/forgotpin.dart';
-import 'package:rental/main%20screens/login.dart';
+import 'package:pinput/pinput.dart';
+import 'package:rental/main_screens/forgot.dart';
+import 'package:rental/main_screens/resetpsd.dart';
 
-class forgot extends StatelessWidget {
-  const forgot({super.key});
+class forgotpin extends StatelessWidget {
+  const forgotpin({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class forgot extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () => Get.to(login()),
+              onTap: () => Get.to(forgot()),
               child: Container(
                 height: 28,
                 width: 28,
@@ -44,7 +45,7 @@ class forgot extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      "Forgot Password",
+                      "Phone verification",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 24,
@@ -75,7 +76,7 @@ class forgot extends StatelessWidget {
                       SizedBox(
                         height: 15,
                       ),
-                      Text("Forgot password?",
+                      Text("Phone verification",
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -84,7 +85,7 @@ class forgot extends StatelessWidget {
                         height: 5,
                       ),
                       Text(
-                        "Enter your email address to reset your password instruction",
+                        "Enter your OTP code here",
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.grey,
@@ -94,38 +95,14 @@ class forgot extends StatelessWidget {
                       SizedBox(
                         height: 40,
                       ),
-                      Container(
-                        height: 50,
-                        width: 390,
-                        child: TextFormField(
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.black.withOpacity(0.5099999904632568),
-                          ),
-                          textAlign: TextAlign.start,
-                          decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Color.fromARGB(255, 244, 244, 244),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 244, 244, 244),
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color.fromARGB(255, 244, 244, 244),
-                                ),
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              label: Text("Phone number")),
-                        ),
+                      Pinput(
+                        length: 6,
                       ),
                       SizedBox(
                         height: 40,
                       ),
                       InkWell(
-                        onTap: () => Get.to(forgotpin()),
+                        onTap: () => Get.to(resetpsd()),
                         child: Container(
                           width: 390,
                           height: 50,
@@ -134,7 +111,7 @@ class forgot extends StatelessWidget {
                               color: Color(0xff1b3e41)),
                           child: Center(
                             child: Text(
-                              "Send Link",
+                              "Verify",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,

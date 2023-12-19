@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main%20screens/login.dart';
+import 'package:rental/main_screens/login.dart';
 
 class signup extends StatelessWidget {
   const signup({super.key});
