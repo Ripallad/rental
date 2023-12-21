@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/Controllers/homeController.dart';
-import 'package:rental/main_screens/cloth.dart';
 import 'package:rental/widgets/commonwidget.dart';
 
 class home extends StatelessWidget {

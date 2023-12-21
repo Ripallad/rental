@@ -15,6 +15,8 @@ class HomeController extends GetxController {
     super.onInit();
   }
 
+  RxInt myindex = 0.obs;
+
   RxInt selectedIndex = 0.obs;
   RxString selectedcatid = '13'.obs;
   RxBool obxcheck = false.obs;
@@ -98,13 +100,41 @@ class HomeController extends GetxController {
       var decode = jsonDecode(response.body);
       var data = decode['data']['subcategory'];
       List list = data.map((m) => Subcategorymodel.fromMap(m)).toList();
+
       subcategorylist.clear();
       subcategorylist.addAll(list);
+
       print(subcategorylist);
+
+      //firts index subcategory data
+
+      var subid = subcategorylist[0].id;
+      getSubCategorywiseproduct(subid);
+      print(subid);
 
       Get.to(() => cloth());
     } else {
       print("error in subcat");
+      print(response.statusCode);
     }
+  }
+
+  RxList scatalist = [].obs;
+  getSubCategorywiseproduct(final subId) {
+    scatalist.clear();
+    for (var i = 0; i < productlist.length; i++) {
+      if (productlist[i].subcategory.toString() == subId.toString()) {
+        scatalist.add(productlist[i]);
+        print(scatalist);
+      }
+    }
+
+    update();
+  }
+
+  RxInt tabIndex = 0.obs;
+
+  changeTabIndex(index) {
+    tabIndex.value = index;
   }
 }
