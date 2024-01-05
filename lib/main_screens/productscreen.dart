@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rental/Controllers/bookingcontroller.dart';
 import 'package:rental/Controllers/homeController.dart';
 import 'package:rental/Models/productModel.dart';
+import 'package:rental/main_screens/bottomsheet.dart';
+import 'package:rental/url.dart';
 
 class productscreen extends StatelessWidget {
   final Product prd;
@@ -9,7 +12,8 @@ class productscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.find<HomeController>();
+    final controller = Get.put(BookingController())..checkItemInCart(prd);
+    final hcontroller = Get.put(HomeController());
     return SafeArea(
       child: Scaffold(
         backgroundColor: Color(0xFFF8F8F8),
@@ -45,8 +49,7 @@ class productscreen extends StatelessWidget {
                                 color: Colors.white,
                               ),
                               child: Image.network(
-                                "http://rentalhere.in/public/uploads/" +
-                                    myimage.file,
+                                imageuri + myimage.file,
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -275,23 +278,39 @@ class productscreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
+                  child: InkWell(
+                    onTap: () {
+                      if (controller.iscontain.value == false) {
+                        showModalBottomSheet(
+                            backgroundColor: Colors.transparent,
+                            context: context,
+                            builder: (builder) => bottomsheet(context, prd));
+                      } else {
+                        hcontroller.changeNavbarTab(3);
+                        print(hcontroller.myindex.value);
+                      }
+                    },
                     child: Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xBFDF453E),
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(40),
-                      )),
-                  child: Center(
-                    child: Text(
-                      "Book Now",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700,
+                      decoration: BoxDecoration(
+                          color: Color(0xBFDF453E),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(40),
+                          )),
+                      child: Center(
+                        child: Text(
+                          controller.iscontain.value == false
+                              ? "Book Now"
+                              : "Alredy available",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ))
+                )
               ],
             ),
           ),

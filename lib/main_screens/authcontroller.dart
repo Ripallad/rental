@@ -1,11 +1,17 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rental/main_screens/login.dart';
+import 'package:rental/main_screens/navigation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'home.dart';
 import 'phoneverification.dart';
 
 class authcontroller extends GetxController {
+  FirebaseAuth a = FirebaseAuth.instance;
   RxString verId = ''.obs;
   verifyMobileNumber(contrycode, mobileno, context) async {
     await FirebaseAuth.instance.verifyPhoneNumber(
@@ -48,14 +54,39 @@ class authcontroller extends GetxController {
   }
 
   verifyotp(code) async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
     try {
       FirebaseAuth auth = FirebaseAuth.instance;
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verId.value, smsCode: code);
       await auth.signInWithCredential(credential);
-      Get.to(() => home());
+      sp.setBool('phoneLogin', true);
+      Get.offAll(() => navigation());
     } catch (e) {
       Get.snackbar("Error", "Invalid OTP");
     }
+  }
+
+  googlesignin() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    try {
+      GoogleAuthProvider gp = GoogleAuthProvider();
+
+      final authdata = await a.signInWithProvider(gp);
+      sp.setBool('googleLogin', true);
+      Get.offAll(navigation());
+    } catch (e) {
+      log(e.toString());
+      print(e.toString());
+    }
+  }
+
+  logout() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+    if (sp.containsKey('googleLogin')) {
+      a.signOut();
+    }
+    sp.clear();
+    Get.offAll(() => login());
   }
 }

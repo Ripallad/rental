@@ -15,15 +15,28 @@ class navigation extends StatefulWidget {
   State<navigation> createState() => _navigationState();
 }
 
-List screen = [home(), search(), allcategory(), bagitem(), profile()];
+final controller = Get.put(HomeController());
+
+List<GlobalKey<NavigatorState>> navigatorKeys =
+    List.generate(5, (_) => GlobalKey<NavigatorState>());
+
+List screen = [home(), search(), allcategory(), BagItem(), profile()];
+
+buildNavigator() {
+  return Navigator(
+      key: navigatorKeys[controller.myindex.value],
+      onGenerateRoute: (RouteSettings settings) {
+        return MaterialPageRoute(
+            builder: (_) => screen.elementAt(controller.myindex.value));
+      });
+}
 
 class _navigationState extends State<navigation> {
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(HomeController());
     return Obx(
       () => Scaffold(
-        body: screen[controller.myindex.value],
+        body: buildNavigator(),
         bottomNavigationBar: CurvedNavigationBar(
             index: controller.myindex.value,
             height: 60,
@@ -32,7 +45,6 @@ class _navigationState extends State<navigation> {
             backgroundColor: Colors.white,
             onTap: (index) {
               controller.myindex.value = index;
-              print(controller.myindex.value);
             },
             items: [
               Image.asset(

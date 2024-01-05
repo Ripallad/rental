@@ -5,7 +5,7 @@ import 'package:rental/main_screens/productscreen.dart';
 
 tpcontainer(prd) {
   return InkWell(
-    onTap: () => Get.to(productscreen(prd: prd)),
+    onTap: () => Get.to(() => productscreen(prd: prd)),
     child: Container(
       // width: 142,
       //height: 220,

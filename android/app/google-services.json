@@ -12,7 +12,20 @@
           "package_name": "com.example.rental"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "456302795494-210scaebjla6gbkpd1v8h8fi83fonv35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rental",
+            "certificate_hash": "f68e20c8451aab6bfc6bb19089df2ea15c3d5887"
+          }
+        },
+        {
+          "client_id": "456302795494-bb3k9j2eb4flg8oipca13n1bqbn88ngb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyA7BNSJQAtGEu-bdnJm8j0BMqRTaxt2AGs"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "456302795494-bb3k9j2eb4flg8oipca13n1bqbn88ngb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "456302795494-g402ve59e52025nomldn2dl6segd8qh9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rental"
+              }
+            }
+          ]
         }
       }
     }

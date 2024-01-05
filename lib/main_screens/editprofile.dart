@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import 'package:rental/main_screens/authcontroller.dart';
 
 class profile extends StatelessWidget {
   const profile({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final auth = Get.put(authcontroller());
     return SafeArea(
       child: Scaffold(
           body: Stack(
@@ -38,7 +40,7 @@ class profile extends StatelessWidget {
                     ),
                     Container(
                       width: 420,
-                      height: 625,
+                      height: 640,
                       child: Column(
                         children: [
                           Padding(
@@ -176,45 +178,50 @@ class profile extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                            width: 315,
-                            height: 45,
-                            decoration: BoxDecoration(
-                                color: Color(0x30CCCCCC),
-                                border: Border.all(
-                                  width: 2,
+                          InkWell(
+                            onTap: () {
+                              // auth.
+                            },
+                            child: Container(
+                              width: 315,
+                              height: 45,
+                              decoration: BoxDecoration(
                                   color: Color(0x30CCCCCC),
-                                ),
-                                borderRadius: BorderRadius.circular(13)),
-                            child: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Icon(
-                                    Icons.logout,
-                                    color: Color(0xFFDF453E),
+                                  border: Border.all(
+                                    width: 2,
+                                    color: Color(0x30CCCCCC),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text(
-                                  "Logout",
-                                  style: TextStyle(
+                                  borderRadius: BorderRadius.circular(13)),
+                              child: Row(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    child: Icon(
+                                      Icons.logout,
+                                      color: Color(0xFFDF453E),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    "Logout",
+                                    style: TextStyle(
+                                      color: Color(0xFF787474),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 180,
+                                  ),
+                                  Icon(
+                                    Icons.arrow_forward_ios,
                                     color: Color(0xFF787474),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 180,
-                                ),
-                                Icon(
-                                  Icons.arrow_forward_ios,
-                                  color: Color(0xFF787474),
-                                  size: 17,
-                                )
-                              ],
+                                    size: 17,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ],

@@ -134,6 +134,10 @@ class Product {
         "product_image": List<dynamic>.from(productImage.map((x) => x.toMap())),
         "clothdata": List<dynamic>.from(clothdata.map((x) => x.toMap())),
       };
+
+  toJson() {}
+
+  static fromJson(json) {}
 }
 
 class Clothdatum {

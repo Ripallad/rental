@@ -137,4 +137,26 @@ class HomeController extends GetxController {
   changeTabIndex(index) {
     tabIndex.value = index;
   }
+
+  changeNavbarTab(index) {
+    myindex.value = index;
+  }
+
+  RxList searchList = [].obs;
+
+  RxString searchValue = ''.obs;
+  getsearchData(String searchString) {
+    searchList.clear();
+    var mylist = productlist
+        .where((prd) => prd.name
+                .toString()
+                .toLowerCase()
+                .startsWith(searchString.toLowerCase())
+            //.contains(searchString.toLowerCase())
+
+            )
+        .toList();
+    searchList.addAll(mylist);
+    print(searchList);
+  }
 }
