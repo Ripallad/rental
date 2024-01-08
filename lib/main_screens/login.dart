@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:rental/main_screens/authcontroller.dart';
 import 'package:rental/main_screens/forgot.dart';
 import 'package:rental/main_screens/signup.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class login extends StatelessWidget {
   const login({super.key});
@@ -191,7 +190,7 @@ class login extends StatelessWidget {
                               onTap: () async {
                                 
                                 final auth = await controller.googlesignin();
-                                
+
                                 print(auth);
                               },
                               child: Container(

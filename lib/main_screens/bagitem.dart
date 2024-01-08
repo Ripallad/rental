@@ -78,29 +78,33 @@ class BagItem extends StatelessWidget {
                         topLeft: Radius.circular(40),
                         topRight: Radius.circular(40),
                       )),
-                  height: 200,
+                  height: 250,
                   child: Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, top: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Remove ${booking.selectedCartItemList.length} item",
-                              style: TextStyle(
-                                fontSize: 16,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                "Remove ${booking.selectedCartItemList.length} item",
+                                style: TextStyle(
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                            InkWell(
-                                onTap: () {
-                                  booking.isDeleteclick.value = false;
-                                  //Navigator.pop(context);
-                                },
-                                child: Icon(Icons.close))
-                          ],
+                              InkWell(
+                                  onTap: () {
+                                    booking.isDeleteclick.value = false;
+                                    //Navigator.pop(context);
+                                  },
+                                  child: Icon(Icons.close))
+                            ],
+                          ),
                         ),
                         SizedBox(
                           height: 34,
@@ -108,13 +112,33 @@ class BagItem extends StatelessWidget {
                         Text(
                           "Are you sure you want to remove ${booking.selectedCartItemList.length}  item from bag.",
                           style: TextStyle(
-                            fontSize: 13,
+                            fontSize: 17,
                           ),
                         ),
                         SizedBox(
                           height: 45,
                         ),
-                        button("Remove", BagItem(), context)
+                        InkWell(
+                          onTap: () {
+                            booking.deleteSelectedList();
+                          },
+                          child: Container(
+                            child: Center(
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            width: 380,
+                            height: 50,
+                            decoration: BoxDecoration(
+                                color: Color(0xFF1B3E41),
+                                borderRadius: BorderRadius.circular(40)),
+                          ),
+                        ),
                       ],
                     ),
                   ),

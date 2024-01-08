@@ -97,4 +97,11 @@ class BookingController extends GetxController {
       cartList.remove(myindex);
     }
   }
+
+  deleteSelectedList() {
+    for (var i = 0; i < selectedCartItemList.length; i++) {
+      cartList.remove(selectedCartItemList[i]);
+    }
+    selectedCartItemList.value = [];
+  }
 }

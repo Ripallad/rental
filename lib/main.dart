@@ -2,8 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/firebase_options.dart';
-import 'package:rental/main_screens/login.dart';
-import 'package:rental/main_screens/navigation.dart';
+
 import 'package:rental/main_screens/splash.dart';
 
 void main() async {
