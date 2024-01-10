@@ -410,6 +410,8 @@ class home extends StatelessWidget {
     final HomeController home1 = Get.put(HomeController());
     //  final auth = Get.find<authController>();
     var searchController = TextEditingController();
+    home1.searchList.value = [];
+    home1.searchValue.value = '';
     return SafeArea(
       child: Obx(() {
         return home1.productlist.length > 3
@@ -570,10 +572,9 @@ class home extends StatelessWidget {
                                                   .categoryList[index].id
                                                   .toString();
 
-                                                   controller.getOnclickproduct(
-                                                      controller
-                                                          .categoryList[index]
-                                                          .id);
+                                              controller.getOnclickproduct(
+                                                  controller
+                                                      .categoryList[index].id);
 
                                               // home1.getSubCategorywiseproduct(
                                               //     home1.categoryList[index].id);

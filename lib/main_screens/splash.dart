@@ -19,6 +19,18 @@ class Splashscreen extends StatelessWidget {
         Get.offAll(login());
       }
     });
-    return Scaffold();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            "assets/images/splash.png",
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    );
   }
 }

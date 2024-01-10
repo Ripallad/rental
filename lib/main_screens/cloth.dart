@@ -46,7 +46,20 @@ class _clothState extends State<cloth> with TickerProviderStateMixin {
         title: Padding(
           padding: const EdgeInsets.only(left: 25),
           child: Text(
-            "Cloth",
+            homeController.selectedcatid == '13'
+                ? "Cloths"
+                : homeController.selectedcatid == '14'
+                    ? "Electronics"
+                    : homeController.selectedcatid == '15'
+                        ? "Events"
+                        : homeController.selectedcatid == '16'
+                            ? "Appliances"
+                            : homeController.selectedcatid == '17'
+                                ? "Vehicles"
+                                : homeController.selectedcatid == '18'
+                                    ? "Constructions"
+                                    : 'Cloths',
+            // "cloth",
             style: TextStyle(
               fontSize: 19,
               fontWeight: FontWeight.w700,

@@ -180,7 +180,7 @@ class profile extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () {
-                              // auth.
+                              auth.logout();
                             },
                             child: Container(
                               width: 315,

@@ -12,6 +12,8 @@ class search extends StatelessWidget {
     final HomeController homeController = Get.find<HomeController>();
 
     var searchController = TextEditingController();
+    homeController.searchList.value = [];
+    homeController.searchValue.value = '';
     return SafeArea(
       child: Obx(
         () => Scaffold(

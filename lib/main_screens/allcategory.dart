@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/Controllers/homeController.dart';
+import 'package:rental/main_screens/cloth.dart';
+import 'package:rental/main_screens/navigation.dart';
 
 class allcategory extends StatelessWidget {
   const allcategory({super.key});
@@ -37,44 +39,52 @@ class allcategory extends StatelessWidget {
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 20),
                   itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(20),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x14000000),
-                              blurRadius: 4,
-                              offset: Offset(0, 2),
-                              spreadRadius: 0,
-                            )
-                          ]),
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                                top: 13, left: 20, right: 24),
-                            child: Container(
-                              child: Image.network(
-                                "http://rentalhere.in/public/uploads/" +
-                                    homeController
-                                        .categoryList[index].iconImage,
-                                fit: BoxFit.fill,
+                    return InkWell(
+                      onTap: () {
+                        homeController.selectedcatid.value =
+                            homeController.categoryList[index].id.toString();
+                        homeController
+                            .getSubCategory(controller.selectedcatid.value);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x14000000),
+                                blurRadius: 4,
+                                offset: Offset(0, 2),
+                                spreadRadius: 0,
+                              )
+                            ]),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 13, left: 20, right: 24),
+                              child: Container(
+                                child: Image.network(
+                                  "http://rentalhere.in/public/uploads/" +
+                                      homeController
+                                          .categoryList[index].iconImage,
+                                  fit: BoxFit.fill,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            homeController.categoryList[index].name,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600,
+                            SizedBox(
+                              height: 10,
                             ),
-                          )
-                        ],
+                            Text(
+                              homeController.categoryList[index].name,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     );
                   },
