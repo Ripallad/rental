@@ -10,6 +10,7 @@ class Cartmodel {
   String selectedDays;
   int quantity;
 
+
   Cartmodel({
     required this.product,
     required this.selectedDays,
