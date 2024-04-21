@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main_screens/authcontroller.dart';
+import 'package:rental/Controllers/authcontroller.dart';
 
 class profile extends StatelessWidget {
   const profile({super.key});

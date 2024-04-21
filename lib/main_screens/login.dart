@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:rental/main_screens/authcontroller.dart';
+import 'package:rental/Controllers/authcontroller.dart';
 import 'package:rental/main_screens/forgot.dart';
 import 'package:rental/main_screens/signup.dart';
 

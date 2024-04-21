@@ -7,8 +7,8 @@ import 'package:rental/main_screens/login.dart';
 import 'package:rental/main_screens/navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'home.dart';
-import 'phoneverification.dart';
+import '../main_screens/home.dart';
+import '../main_screens/phoneverification.dart';
 
 class authcontroller extends GetxController {
   FirebaseAuth a = FirebaseAuth.instance;

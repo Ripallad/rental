@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
-import 'package:rental/main_screens/authcontroller.dart';
+import 'package:rental/Controllers/authcontroller.dart';
 import 'package:rental/main_screens/login.dart';
 
 class phoneverification extends StatelessWidget {
