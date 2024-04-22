@@ -107,7 +107,7 @@ Homecontainer1(context, product) {
           },
           child: Container(
             width: 142,
-            height: 205,
+            height: 215,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -153,7 +153,7 @@ Homecontainer1(context, product) {
                       product.price.toString(),
                       style: TextStyle(
                         color: Colors.red,
-                        fontSize: 17,
+                        fontSize: 15,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
