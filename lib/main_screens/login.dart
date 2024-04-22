@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rental/Controllers/authcontroller.dart';
-import 'package:rental/main_screens/forgot.dart';
+
 import 'package:rental/main_screens/signup.dart';
 
 class login extends StatelessWidget {
@@ -146,7 +146,7 @@ class login extends StatelessWidget {
                                 color: Color(0xff1b3e41)),
                             child: Center(
                               child: Text(
-                                "Sign In",
+                                "Send Otp",
                                 style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
@@ -157,19 +157,6 @@ class login extends StatelessWidget {
                         ),
                         SizedBox(
                           height: 20,
-                        ),
-                        Center(
-                          child: InkWell(
-                            onTap: () => Get.to(forgot()),
-                            child: Text("forgot your password",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w600,
-                                    color: Color.fromARGB(255, 223, 70, 62))),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
                         ),
                         Center(
                           child: Text(
@@ -188,7 +175,6 @@ class login extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () async {
-                                
                                 final auth = await controller.googlesignin();
 
                                 print(auth);
@@ -208,34 +194,6 @@ class login extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Don’t have an account ?",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color.fromARGB(255, 166, 168, 170)),
-                            ),
-                            SizedBox(
-                              width: 3,
-                            ),
-                            InkWell(
-                              onTap: () => Get.to(signup()),
-                              child: Text(
-                                "Sign-Up",
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color.fromARGB(255, 223, 70, 62)),
-                              ),
-                            ),
-                          ],
-                        )
                       ],
                     ),
                   ),
